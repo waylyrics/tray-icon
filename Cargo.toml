@@ -1,18 +1,17 @@
 [package]
-name = "tray-icon"
+name = "tray-icon2"
 version = "0.13.1"
 edition = "2021"
 description = "Create tray icons for desktop applications"
-homepage = "https://github.com/tauri-apps/tray-icon"
-repository = "https://github.com/tauri-apps/tray-icon"
+homepage = "https://github.com/waylyrics/tray-icon"
+repository = "https://github.com/waylyrics/tray-icon"
 license = "MIT OR Apache-2.0"
-categories = [ "gui" ]
+categories = ["gui"]
 
 [features]
-default = [ "libxdo" ]
-libxdo = [ "muda/libxdo" ]
-serde = [ "muda/serde", "dep:serde" ]
-common-controls-v6 = [ "muda/common-controls-v6" ]
+default = []
+serde = ["muda/serde", "dep:serde"]
+common-controls-v6 = ["muda/common-controls-v6"]
 
 [dependencies]
 muda = { version = "0.13", default-features = false }
@@ -28,15 +27,8 @@ features = [
   "Win32_Foundation",
   "Win32_System_SystemServices",
   "Win32_Graphics_Gdi",
-  "Win32_UI_Shell"
+  "Win32_UI_Shell",
 ]
-
-[target."cfg(target_os = \"linux\")".dependencies]
-libappindicator = "0.9"
-dirs-next = "2.0"
-
-[target."cfg(target_os = \"linux\")".dev-dependencies]
-gtk = "0.18"
 
 [target."cfg(target_os = \"macos\")".dependencies]
 cocoa = "0.25"
@@ -46,7 +38,7 @@ core-graphics = "0.23"
 [target."cfg(target_os = \"macos\")".dev-dependencies]
 core-foundation = "0.9"
 
-[target."cfg(any(target_os = \"linux\", target_os = \"macos\"))".dependencies]
+[target."cfg(any(target_os = \"macos\"))".dependencies]
 png = "0.17"
 
 [dev-dependencies]
